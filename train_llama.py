@@ -13,8 +13,8 @@ from peft import LoraConfig, get_peft_model, prepare_model_for_kbit_training
 
 # === CONFIG ===
 model_id = "meta-llama/Llama-2-7b-hf"
-dataset_path = "/path/on/hpc/processed_books_tokenized_final.jsonl"  # <-- update this on HPC
-output_dir = "/path/on/hpc/output/llama-7b-finetuned"                # <-- update this on HPC
+dataset_path = "./data/processed_books_tokenized_final.jsonl"  # <-- update this on HPC
+output_dir = "./output/llama-7b-finetuned"               # <-- update this on HPC
 
 # === Load tokenizer ===
 tokenizer = AutoTokenizer.from_pretrained(
