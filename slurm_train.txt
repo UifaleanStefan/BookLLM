@@ -1,0 +1,22 @@
+#!/bin/bash
+#SBATCH --job-name="bookllm-train"
+#SBATCH --account=3310360
+#SBATCH --partition=ai
+#SBATCH --cpus-per-task=1
+#SBATCH --gpus=2
+#SBATCH --mem=48GB
+#SBATCH --chdir=.
+#SBATCH --output=/home/3310360/out.out
+#SBATCH --error=/home/3310360/err.err
+#SBATCH --mail-type=ALL
+#SBATCH --mail-user=uifaleanstefan@gmail.com
+
+module load modules/miniconda3
+eval "$(conda shell.bash hook)"
+conda activate llama-env
+
+# === Run training ===
+python train_llama.py
+
+module unload modules/miniconda3
+echo "✅ The end"
